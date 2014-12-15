@@ -1,0 +1,94 @@
+<h1>Taxi</h1>
+<p>Tweets realizados sobre los taxis en Santiago</p>
+
+
+	<h4>Taxi</h4>
+	<% @tweets19.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Rechazo" %></p>
+			<% @db.execute "INSERT INTO Taxi VALUES('"+n.text+"','rechazo')" %>
+
+	<% end %>
+	<% @tweets20.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Rechazo" %></p>
+			<% @db.execute "INSERT INTO Taxi VALUES('"+n.text+"','rechazo')" %>
+
+	<% end %>
+        <% @tweets21.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Rechazo" %></p>
+			<% @db.execute "INSERT INTO Taxi VALUES('"+n.text+"','rechazo')" %>
+
+	<% end %>
+	<% @tweets22.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Rechazo" %></p>
+			<% @db.execute "INSERT INTO Taxi VALUES('"+n.text+"','rechazo')" %>
+
+	<% end %>
+        <% @tweets23.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Rechazo" %></p>
+			<% @db.execute "INSERT INTO Taxi VALUES('"+n.text+"','rechazo')" %>
+
+	<% end %>
+	<% @tweets24.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Aceptacion" %></p>
+			<% @db.execute "INSERT INTO Taxi VALUES('"+n.text+"','aceptacion')" %>
+
+	<% end %>
+	<% @tweets25.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Aceptacion" %></p>
+			<% @db.execute "INSERT INTO Taxi VALUES('"+n.text+"','aceptacion')" %>
+
+	<% end %>
+        <% @tweets26.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Aceptacion" %></p>
+			<% @db.execute "INSERT INTO Taxi VALUES('"+n.text+"','aceptacion')" %>
+
+	<% end %>
+	<% @tweets27.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Aceptacion" %></p>
+			<% @db.execute "INSERT INTO Taxi VALUES('"+n.text+"','aceptacion')" %>
+
+	<% end %>
+
+	<%counttaxi=@db.execute "SELECT COUNT (*) FROM Taxi"%>
+
+	<%totaltaxi=0%>
+
+	<%counttaxi.each do |i|%>
+    <%    totaltaxi=i%>
+	<%end%>
+
+	<%totalaprobtaxi=0.1%>
+
+	<%aprobtaxi=@db.execute "SELECT COUNT(aprobacion) FROM Taxi%>
+	<%WHERE aprobacion='aceptacion'"%>	
+
+	<%aprobtaxi.each do |i|%>
+	<%totalaprobtaxi=i%>
+	<%end%>
+
+	<%totalreprobtaxi=0.1%>
+
+	<%reprobtaxi=@db.execute "SELECT COUNT(aprobacion) FROM Taxi%>
+	<%WHERE aprobacion='rechazo'"%>
+
+	<%reprobtaxi.each do |i|%>
+	<%totalreprobtaxi=i%>
+	<%end%>
+
+	<%porcentajeaprobtaxi=0%>
+
+	<%porcentajeaprobtaxi=((totalaprobtaxi[0].to_f)/(totaltaxi[0].to_f))*100%>
+
+	<%porcentajereprobtaxi=0%>
+	
+	<%porcentajereprobtaxi=((totalreprobtaxi[0].to_f)/(totaltaxi[0].to_f))*100%>
+
+	<p></p>
+
+	<p><%= "Porcentaje de aprobacion: "%></p>
+
+	<p><%=porcentajeaprobtaxi%></p>
+
+	<p><%= "Porcentaje de reprobacion: "%></p>
+
+	<p><%=porcentajereprobtaxi%></p>

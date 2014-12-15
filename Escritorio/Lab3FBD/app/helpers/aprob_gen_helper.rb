@@ -1,0 +1,2 @@
+module AprobGenHelper
+end

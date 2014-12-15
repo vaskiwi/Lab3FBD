@@ -1,0 +1,92 @@
+<h1>Colectivo</h1>
+<p>Tweets realizados sobre los colectivos en Santiago</p>
+
+	<h4>Colectivo</h4>
+	<% @tweets28.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Rechazo"%></p>
+			<% @db.execute "INSERT INTO Colectivo VALUES('"+n.text+"','rechazo')" %>
+
+	<% end %>
+	<% @tweets29.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Rechazo"%></p>
+			<% @db.execute "INSERT INTO Colectivo VALUES('"+n.text+"','rechazo')" %>
+
+	<% end %>
+        <% @tweets30.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Rechazo"%></p>
+			<% @db.execute "INSERT INTO Colectivo VALUES('"+n.text+"','rechazo')" %>
+
+	<% end %>
+	<% @tweets31.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Rechazo"%></p>
+			<% @db.execute "INSERT INTO Colectivo VALUES('"+n.text+"','rechazo')" %>
+
+	<% end %>
+        <% @tweets32.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Rechazo"%></p>
+			<% @db.execute "INSERT INTO Colectivo VALUES('"+n.text+"','rechazo')" %>
+
+	<% end %>
+	<% @tweets33.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Aceptacion"%></p>
+			<% @db.execute "INSERT INTO Colectivo VALUES('"+n.text+"','aceptacion')" %>
+
+	<% end %>
+	<% @tweets34.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Aceptacion"%></p>
+			<% @db.execute "INSERT INTO Colectivo VALUES('"+n.text+"','aceptacion')" %>
+
+	<% end %>
+	<% @tweets35.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Aceptacion"%></p>
+			<% @db.execute "INSERT INTO Colectivo VALUES('"+n.text+"','aceptacion')" %>
+
+	<% end %>
+	<% @tweets36.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Aceptacion"%></p>
+			<% @db.execute "INSERT INTO Colectivo VALUES('"+n.text+"','aceptacion')" %>
+
+	<% end %>
+	<%countcolectivo=@db.execute "SELECT COUNT (*) FROM Colectivo"%>
+
+	<%totalcolectivo=0%>
+
+	<%countcolectivo.each do |i|%>
+    <%    totalcolectivo=i%>
+	<%end%>
+
+	<%totalaprobcolectivo=0.1%>
+
+	<%aprobcolectivo=@db.execute "SELECT COUNT(aprobacion) FROM Colectivo%>
+	<%WHERE aprobacion='aceptacion'"%>	
+
+	<%aprobcolectivo.each do |i|%>
+	<%totalaprobcolectivo=i%>
+	<%end%>
+
+	<%totalreprobcolectivo=0.1%>
+
+	<%reprobcolectivo=@db.execute "SELECT COUNT(aprobacion) FROM Colectivo%>
+	<%WHERE aprobacion='rechazo'"%>
+
+	<%reprobcolectivo.each do |i|%>
+	<%totalreprobcolectivo=i%>
+	<%end%>
+
+	<%porcentajeaprobcolectivo=0%>
+
+	<%porcentajeaprobcolectivo=((totalaprobcolectivo[0].to_f)/(totalcolectivo[0].to_f))*100%>
+
+	<%porcentajereprobcolectivo=0%>
+	
+	<%porcentajereprobcolectivo=((totalreprobcolectivo[0].to_f)/(totalcolectivo[0].to_f))*100%>
+
+	<p></p>
+
+	<p><%= "Porcentaje de aprobacion: "%></p>
+
+	<p><%=porcentajeaprobcolectivo%></p>
+
+	<p><%= "Porcentaje de reprobacion: "%></p>
+
+	<p><%=porcentajereprobcolectivo%></p>

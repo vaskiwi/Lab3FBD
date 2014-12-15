@@ -1,0 +1,86 @@
+<h1>Metro</h1>
+<p>Tweets realizados sobre el Metro de Santiago</p>
+
+<h4>Metro</h4>
+
+	<% @tweets.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at) + ". Rechazo" %></p>
+	<% @db.execute "INSERT INTO Metro VALUES('"+n.text+"','rechazo')" %>
+	<% end %>
+	<% @tweets2.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at) + ". Rechazo"%></p>
+	<% @db.execute "INSERT INTO Metro VALUES('"+n.text+"','rechazo')" %>
+	<% end %>
+        <% @tweets3.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at) + ". Rechazo" %></p>
+	<% @db.execute "INSERT INTO Metro VALUES('"+n.text+"','rechazo')" %>
+	<% end %>
+	<% @tweets4.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at) + ". Rechazo"%></p>
+	<% @db.execute "INSERT INTO Metro VALUES('"+n.text+"','rechazo')" %>
+	<% end %>
+        <% @tweets5.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at) + ". Rechazo"%></p>
+	<% @db.execute "INSERT INTO Metro VALUES('"+n.text+"','rechazo')" %>
+	<% end %>
+	<% @tweets6.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at) + ". Aceptacion"%></p>
+	<% @db.execute "INSERT INTO Metro VALUES('"+n.text+"','aceptacion')" %>
+	<% end %>
+	<% @tweets7.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at) + ". Aceptacion"%></p>
+	<% @db.execute "INSERT INTO Metro VALUES('"+n.text+"','aceptacion')" %>
+	<% end %>
+        <% @tweets8.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at) + ". Aceptacion"%></p>
+	<% @db.execute "INSERT INTO Metro VALUES('"+n.text+"','aceptacion')" %>
+	<% end %>
+	<% @tweets9.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at) + ". Aceptacion"%></p>
+	<% @db.execute "INSERT INTO Metro VALUES('"+n.text+"','aceptacion')" %>
+	<% end %>
+
+	<%countmetro=@db.execute "SELECT COUNT (*) FROM Metro"%>
+
+	<%@totalmetro=0%>
+
+	<%countmetro.each do |i|%>
+    <%    @totalmetro=i%>
+	<%end%>
+
+	<%@totalaprobmetro=0.1%>
+
+	<%aprobmetro=@db.execute "SELECT COUNT(aprobacion) FROM Metro%>
+	<%WHERE aprobacion='aceptacion'"%>	
+
+	<%aprobmetro.each do |i|%>
+	<%@totalaprobmetro=i%>
+	<%end%>
+
+	<%@totalreprobmetro=0.1%>
+
+	<%reprobmetro=@db.execute "SELECT COUNT(aprobacion) FROM Metro%>
+	<%WHERE aprobacion='rechazo'"%>
+
+	<%reprobmetro.each do |i|%>
+	<%@totalreprobmetro=i%>
+	<%end%>
+
+	<%porcentajeaprobmetro=0%>
+
+	<%porcentajeaprobmetro=((@totalaprobmetro[0].to_f)/(@totalmetro[0].to_f))*100%>
+
+	<%porcentajereprobmetro=0%>
+	
+	<%porcentajereprobmetro=((@totalreprobmetro[0].to_f)/(@totalmetro[0].to_f))*100%>
+
+	<p></p>
+
+	<p><%= "Porcentaje de aprobacion: "%></p>
+
+	<p><%=porcentajeaprobmetro%></p>
+
+	<p><%= "Porcentaje de reprobacion: "%></p>
+
+	<p><%=porcentajereprobmetro%></p>
+

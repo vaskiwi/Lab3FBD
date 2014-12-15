@@ -1,0 +1,93 @@
+<h1>Transantiago#form</h1>
+<p>Tweets realizados sobre los buses del Transantiago</p>
+
+	<h4>Transantiago</h4>
+	<% @tweets10.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Rechazo"  %></p>
+		<% @db.execute "INSERT INTO Micro VALUES('"+n.text+"','rechazo')" %>
+
+	<% end %>
+	<% @tweets11.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Rechazo"  %></p>
+		<% @db.execute "INSERT INTO Micro VALUES('"+n.text+"','rechazo')" %>
+
+	<% end %>
+        <% @tweets12.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Rechazo"  %></p>
+		<% @db.execute "INSERT INTO Micro VALUES('"+n.text+"','rechazo')" %>
+
+	<% end %>
+	<% @tweets13.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Rechazo"  %></p>
+		<% @db.execute "INSERT INTO Micro VALUES('"+n.text+"','rechazo')" %>
+
+	<% end %>
+        <% @tweets14.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at)+ ". Rechazo"  %></p>
+		<% @db.execute "INSERT INTO Micro VALUES('"+n.text+"','rechazo')" %>
+
+	<% end %>
+	<% @tweets15.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at) + ". Aceptacion"%></p>
+		<% @db.execute "INSERT INTO Micro VALUES('"+n.text+"','aceptacion')" %>
+
+	<% end %>
+	<% @tweets16.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at) + ". Aceptacion"%></p>
+		<% @db.execute "INSERT INTO Micro VALUES('"+n.text+"','aceptacion')" %>
+
+	<% end %>
+        <% @tweets17.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at) + ". Aceptacion"%></p>
+		<% @db.execute "INSERT INTO Micro VALUES('"+n.text+"','aceptacion')" %>
+
+	<% end %>
+	<% @tweets18.each do |n| %>
+	<p><%= "Usuario: " + n.user.name +  " Tweet: " + n.text + " Hace " + time_ago_in_words(n.created_at) + ". Aceptacion"%></p>
+		<% @db.execute "INSERT INTO Micro VALUES('"+n.text+"','aceptacion')" %>
+
+	<% end %>
+
+	<%countmicro=@db.execute "SELECT COUNT (*) FROM Micro"%>
+
+	<%@totalmicro=0%>
+
+	<%countmicro.each do |i|%>
+    <%    @totalmicro=i%>
+	<%end%>
+
+	<%@totalaprobmicro=0.1%>
+
+	<%aprobmicro=@db.execute "SELECT COUNT(aprobacion) FROM Micro%>
+	<%WHERE aprobacion='aceptacion'"%>	
+
+	<%aprobmicro.each do |i|%>
+	<%@totalaprobmicro=i%>
+	<%end%>
+
+	<%@totalreprobmicro=0.1%>
+
+	<%reprobmicro=@db.execute "SELECT COUNT(aprobacion) FROM Micro%>
+	<%WHERE aprobacion='rechazo'"%>
+
+	<%reprobmicro.each do |i|%>
+	<%@totalreprobmicro=i%>
+	<%end%>
+
+	<%porcentajeaprobmicro=0%>
+
+	<%porcentajeaprobmicro=((@totalaprobmicro[0].to_f)/(@totalmicro[0].to_f))*100%>
+
+	<%porcentajereprobmicro=0%>
+	
+	<%porcentajereprobmicro=((@totalreprobmicro[0].to_f)/(@totalmicro[0].to_f))*100%>
+
+	<p></p>
+
+	<p><%= "Porcentaje de aprobacion: "%></p>
+
+	<p><%=porcentajeaprobmicro%></p>
+
+	<p><%= "Porcentaje de reprobacion: "%></p>
+
+	<p><%=porcentajereprobmicro%></p>
