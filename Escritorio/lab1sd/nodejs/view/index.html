@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laboratorio 1 de sistemas distribuidos</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/cover.css" rel="stylesheet">
+    <!-- Libreria utilizada para la conexion del Socket.io -->
+    <script src="socket.io/socket.io.js"></script>
+    <!-- Librerias necesarias para el funcionamiento de la página -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="function/index.js"></script>
+    <p><a href="http://sitios.diinf.usach.cl/respond/wp-content/themes/yahootheme/img/logoUsach.png" class="image image-thumbnail" title="Logo UdeSantiago" ><img src="http://sitios.diinf.usach.cl/respond/wp-content/themes/yahootheme/img/logoUsach.png" alt="logoUsach" class="" data-image-key="logoUsach.png" data-image-name="logoUsach.png" width="150" height="200" ></a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://ceii.cl/wp-content/uploads/2011/10/logo_colores1.jpg" class="image image-thumbnail" title="Logo Informatica" ><img src="http://ceii.cl/wp-content/uploads/2011/10/logo_colores1.jpg" alt="logo_colores1.jpg" class="" data-image-key="logo_colores1.jpg" data-image-name="logo_colores1.jpg" width="200" height="200" ></a>
+	</p>
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+      
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand"> </h3>
+              <ul class="nav masthead-nav">
+                <li class="active"><a href="/">Lab 1</a></li>
+              </ul>
+            </div>
+          </div>
+	<br><br>
+	<br><br>
+	<br><br>
+<br><br>
+<h1 class="h1-title cover-heading">Sistemas Distribuidos - Laboratorio 1</h1>
+              	<br><br>
+<br><br>
+<br><br>
+          <div class="inner cover">
+            <h1 class="h1-title cover-heading">Radio principal</h1>
+            
+            <div class="chat-text" id="chat">
+            </div>
+
+            <div class="btn-group" role="group">
+
+              <input class="form-control" id="text-send" placeholder="Send text">
+
+              <button class="btn btn-default btn-send" id="btn-send">Enviar</button>
+              
+              <button class="btn btn-default dropdown-toggle" type="button" id="salas" data-toggle="dropdown">
+                Salas disponibles
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-sala" role="menu">
+                <li id="Principal"><a href="http://190.46.223.173:8080">Radio Principal</a></li>
+                <li id="1"><a href="http://190.46.223.173:8081">Radio 1</a>
+                <li id="2"><a href="http://190.46.223.173:8082">Radio 2</a>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
