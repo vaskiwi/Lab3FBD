@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Radio 2</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/cover.css" rel="stylesheet">
+
+    <!-- Libreria utilizada para la conexion del Socket.io -->
+    <script src="socket.io/socket.io.js"></script>
+    <!-- Librerias necesarias para el funcionamiento de la página -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="function/index.js"></script>
+
+  </head>
+
+  <body>
+<br><br>
+	<br><br>
+<br><br>
+<h1 class="h1-title cover-heading">Sistemas Distribuidos - Laboratorio 1</h1>
+              	<br><br>
+<br><br>
+<br><br>
+<h1 class="h1-title cover-heading">Radio 2 - Recuerdos de la infancia</h1>
+              	<br><br>
+	<br><br>	
+	<audio id="audio2" src="https://dl.dropboxusercontent.com/s/142z2ow2t8wmgv4/digimon.mp3" controls preload="auto" autobuffer>
+	</audio>
+<div class="chat-text" id="chat">
+            </div>
+
+            <div class="btn-group" role="group">
+
+              <input class="form-control" id="text-send" placeholder="Send text">
+
+              <button class="btn btn-default btn-send" id="btn-send">Enviar</button>
+              
+              <button class="btn btn-default dropdown-toggle" type="button" id="salas" data-toggle="dropdown">
+                Salas disponibles
+                <span class="caret"></span>
+              </button>
+
+              <ul class="dropdown-menu dropdown-sala" role="menu">
+                <li id="Principal"><a href="http://190.46.223.173:8080">Radio Principal</a></li>
+                <li id="1"><a href="http://190.46.223.173:8081">Radio 1</a>
+                <li id="2"><a href="http://190.46.223.173:8082">Radio 2</a>
+              </ul>
+            </div>
+  </body>
+</html>
